@@ -1,4 +1,3 @@
-
 # Literate Web Font
 
 ## TL;DR
@@ -138,11 +137,29 @@ plugin rather than the other way around, since this allows logging
 what we are doing etc...
 
 ### MAC OS/X and brew
-I have not tried this:
+Prereqs:
 
-    # https://github.com/mxcl/homebrew/issues/4689
-    brew install fontforge
-    brew install ttf2eot
+* brew
+* command line tools for xcode
+
+The homebrew formula is currently broken on Mountian Lion (10.8). To install, we need to replace the formula file  `/usr/local/Library/Formula/fontforge.rb` with https://raw.github.com/ummels/homebrew/fontforge/Library/Formula/fontforge.rb
+
+This should work:
+
+``` bash
+mv /usr/local/Library/Formula/fontforge.rb /usr/local/Library/Formula/fontforge.rb.bak && curl https://raw.github.com/ummels/homebrew/fontforge/Library/Formula/fontforge.rb -o /usr/local/Library/Formula/fontforge.rb
+```
+
+Then run brew
+
+``` bash
+brew update
+brew install fontforge
+brew install ttf2eot
+```
+
+(Note: https://github.com/mxcl/homebrew/issues/4689 mentions a python extension which might not come by default?)
+
 
 ### Ubuntu and friends
     sudo apt-get install python-fontforge
