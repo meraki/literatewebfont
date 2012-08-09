@@ -156,6 +156,9 @@ Then run brew
 brew update
 brew install fontforge
 brew install ttf2eot
+# via http://stackoverflow.com/questions/11710568/os-x-10-8-error-trying-to-exec-usr-bin-i686-apple-darwin11-gcc-4-2-1-inst
+sudo ln -sf /usr/bin/llvm-gcc-4.2 /usr/bin/gcc-4.2
+gem install jekyll
 ```
 
 (Note: https://github.com/mxcl/homebrew/issues/4689 mentions a python extension which might not come by default?)
